@@ -43,7 +43,6 @@ cc.Class({
     },
 
     BlocksRender () {
-        cc.log('blocks render')
         const blockControllers = this.GetAllBlockControllers()
         for (var i = 0; i < blockControllers.length; i++) {
             blockControllers[i].MoveBlock()

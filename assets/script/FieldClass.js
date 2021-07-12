@@ -66,6 +66,7 @@ export class Field {
     DoNotSelectAllBlocks () {
         this.allocatedBlockCounter = 0
         this.ExecuteForAllBlocks((blocks, column, line) => {
+            cc.log('DoNotSelectAllBlocks')            
             blocks[column][line].DoNotSelectABlock()
         })
     } 

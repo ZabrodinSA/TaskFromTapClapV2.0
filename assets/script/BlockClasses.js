@@ -21,7 +21,7 @@ class Block {
         return numberOfDestroyedBlocks
     }
 
-    SelectTheBlock () {this.selected = true}
+    SelectTheBlock (field) {this.selected = true}
 
     DoNotSelectABlock () {this.selected = false}
 
@@ -44,9 +44,7 @@ class ColorBlock extends Block {
 
     constructor (column, line) {
         super (column, line)
-        // if (column == 0 )
         this.name = ColorBlock.colors[cc.math.randomRangeInt(0, ColorBlock.colors.length)]
-        // else {this.name = 'red'}
     }
 
     Click (game, callbacks) {
@@ -69,12 +67,16 @@ class SuperBlock extends Block {
     }
 
     SelectTheBlock (field) {
-        super.SelectTheBlock()
-        field.ExecuteForAllBlocks ((blocks, column, line) => {
-            if (this.column == column && this.line != line) {
-                blocks[column][line].SelectTheBlock(field) 
-            }
-        })
+        if (!this.selected){
+            cc.log(this.selected)
+
+                super.SelectTheBlock()
+                field.ExecuteForAllBlocks ((blocks, column, line) => {
+                if (this.column == column && this.line != line) {
+                    blocks[column][line].SelectTheBlock(field) 
+                }
+            })
+        }
     }
 }
 

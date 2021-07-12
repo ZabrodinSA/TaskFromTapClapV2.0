@@ -1,3 +1,5 @@
+const { Game } = require("../GameClass");
+
 cc.Class({
     extends: cc.Component,
 

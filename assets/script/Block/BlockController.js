@@ -154,7 +154,6 @@ cc.Class({
         if (fieldControl._mixingTime < moveTime) {
             fieldControl._mixingTime = moveTime
         }
-        cc.log(fieldControl._mixingTime)
         const seq = cc.sequence(action, callFunc)
         block.runAction(seq)
     },
